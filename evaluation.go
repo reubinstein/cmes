@@ -3,6 +3,8 @@ package cmes
 import (
 	"fmt"
 	"time"
+
+	"github.com/reubinstein/performance"
 )
 
 type Performer struct {
