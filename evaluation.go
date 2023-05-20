@@ -3,10 +3,6 @@ package cmes
 import (
 	"fmt"
 	"time"
-
-	"./benchmarking"
-	"./performance"
-	"./reporting"
 )
 
 type Performer struct {
