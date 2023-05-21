@@ -35,7 +35,7 @@ func main() {
 	router.HandleFunc("/counselors/{id}", deleteCounselor).Methods("DELETE")
 
 	router.HandleFunc("/challenges", createChallenge).Methods("POST")
-	router.HandleFunc("/challenges", getChallenges).Methods("GET")
+	router.HandleFunc("/challenges", getChallenge).Methods("GET")
 	router.HandleFunc("/challenges/{id}", getChallenge).Methods("GET")
 	router.HandleFunc("/challenges/{id}", updateChallenge).Methods("PUT")
 	router.HandleFunc("/challenges/{id}", deleteChallenge).Methods("DELETE")
@@ -46,11 +46,11 @@ func main() {
 	router.HandleFunc("/projects/{id}", updateProject).Methods("PUT")
 	router.HandleFunc("/projects/{id}", deleteProject).Methods("DELETE")
 
-	router.HandleFunc("/ccm-policies", createCCMPolicy).Methods("POST")
-	router.HandleFunc("/ccm-policies", getCCMPolicies).Methods("GET")
-	router.HandleFunc("/ccm-policies/{id}", getCCMPolicy).Methods("GET")
-	router.HandleFunc("/ccm-policies/{id}", updateCCMPolicy).Methods("PUT")
-	router.HandleFunc("/ccm-policies/{id}", deleteCCMPolicy).Methods("DELETE")
+	router.HandleFunc("/policies", createPolicy).Methods("POST")
+	router.HandleFunc("/policies", getAllPolicies).Methods("GET")
+	router.HandleFunc("/policies/{id}", getPolicy).Methods("GET")
+	router.HandleFunc("/policies/{id}", updatePolicy).Methods("PUT")
+	router.HandleFunc("/policies/{id}", deleteolicy).Methods("DELETE")
 
 	// register route for standards benchmarking API
 	router.HandleFunc("/benchmark", benchmark).Methods("GET")
