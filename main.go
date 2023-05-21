@@ -8,6 +8,12 @@ import (
 	"github.com/gorilla/mux"
 )
 
+type Policy struct {
+	ID       int    `json:"id"`
+	Name     string `json:"name"`
+	Category string `json:"category"`
+}
+
 func createMP(w http.ResponseWriter, r *http.Request) {
 	// Parse the request body to get the MP data
 	var mp MP
@@ -50,7 +56,7 @@ func main() {
 	router.HandleFunc("/policies", getAllPolicies).Methods("GET")
 	router.HandleFunc("/policies/{id}", getPolicy).Methods("GET")
 	router.HandleFunc("/policies/{id}", updatePolicy).Methods("PUT")
-	router.HandleFunc("/policies/{id}", deleteolicy).Methods("DELETE")
+	router.HandleFunc("/policies/{id}", deletePolicy).Methods("DELETE")
 
 	// register route for standards benchmarking API
 	router.HandleFunc("/benchmark", benchmark).Methods("GET")
