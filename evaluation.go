@@ -49,8 +49,8 @@ func EvaluatePerformer(p Performer) (*EvaluationResult, error) {
 
 	// Generate an email report
 	emailReporter := reporting.NewEmailReporter(
-		"sender@example.com",
-		"recipient@example.com",
+		"framanreubinsten@gmail.com",
+		"mndemefuraha00@gmail.com",
 		"Benchmark Report",
 		"smtp.example.com",
 		"username",
