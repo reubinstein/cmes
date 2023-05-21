@@ -17,7 +17,6 @@ func createMP(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 }
-getCounselorsHandler:=
 
 func main() {
 	router := mux.NewRouter()

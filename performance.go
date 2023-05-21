@@ -66,6 +66,20 @@ func (counselor *LocalCounselor) GetPerformance() []PerformanceData {
 	}
 }
 
+type counselor1 struct {
+	name string
+	ward string
+}
+
+type mp1 struct {
+}
+type mp2 struct {
+}
+type counselor2 struct {
+	name string
+	ward string
+}
+
 func PS() {
 	// Get performance standards
 	performanceStandards := GetPerformanceStandards()

@@ -31,6 +31,8 @@ func route() {
 	r.HandleFunc("/challenge", createChallenge).Methods("POST")
 	r.HandleFunc("/challenge/{id}", getChallenge).Methods("GET")
 	r.HandleFunc("/challenges", getAllChallenges).Methods("GET")
+	r.HandleFunc("/challenges/{id}", updateChallenge).Methods("PUT")
+	r.HandleFunc("/challenges/{id}", deleteChallenge).Methods("DELETE")
 
 	// promise routes
 	r.HandleFunc("/promise", createPromise).Methods("POST")
@@ -90,4 +92,25 @@ func getPromise(w http.ResponseWriter, r *http.Request) {
 
 func getAllPromises(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(promises)
+}
+func updateChallenge(w http.ResponseWriter, r *http.Request) {
+	params := mux.Vars(r)
+	for _, challenge := range challenges {
+		if challenge.ID == params["id"] {
+			json.NewEncoder(w).Encode(challenge)
+			return
+		}
+	}
+	http.Error(w, "Challenge not updated", http.StatusNotFound)
+}
+
+func deleteChallenge(w http.ResponseWriter, r *http.Request) {
+	var challenge Challenge
+	err := json.NewDecoder(r.Body).Decode(&challenge)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+	challenges = append(challenges, challenge)
+	json.NewEncoder(w).Encode(challenge)
 }
