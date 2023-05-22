@@ -93,6 +93,10 @@ func NewPDFReporter(filePath string) *PDFReporter {
 }
 
 func (pr *PDFReporter) GenerateReport(report Report) (string, error) {
+	body, err := NewConsoleReporter().GenerateReport(report)
+	if err != nil {
+		return "", err
+	}
 	pdf := gofpdf.New("P", "mm", "A4", "")
 	pdf.AddPage()
 	pdf.SetFont("Arial", "B", 16)
@@ -108,5 +112,10 @@ func (pr *PDFReporter) GenerateReport(report Report) (string, error) {
 
 	pdf.SetFont("Arial", "B", 12)
 	pdf.CellFormat(40, 10, "KPI Scores:")
+	if err := d.DialAndSend(m); err != nil {
+		return "", err
+	}
+
+	return body, nil
 
 }
