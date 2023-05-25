@@ -2,26 +2,27 @@ package cmes
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 
 	"github.com/gorilla/mux"
 )
 
-type Policy struct {
-	ID       int    `json:"id"`
-	Name     string `json:"name"`
-	Category string `json:"category"`
-}
-
 func createMP(w http.ResponseWriter, r *http.Request) {
-	// Parse the request body to get the MP data
+	// Parse the request body
 	var mp MP
 	err := json.NewDecoder(r.Body).Decode(&mp)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
+
+	// Validate and process the MP data
+
+	// Return a success response
+	w.WriteHeader(http.StatusOK)
+	fmt.Fprintf(w, "MP created successfully")
 }
 
 func main() {
