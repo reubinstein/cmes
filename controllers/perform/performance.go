@@ -6,14 +6,14 @@ import (
 	"time"
 )
 
-type PerformanceStandard struct {
+type PerformanceStandards struct {
 	KPI         string
 	GoodPerf    string
 	Measurement string
 }
 
-func GetPerformanceStandards() []PerformanceStandard {
-	return []PerformanceStandard{
+func GetPerformanceStandards() []PerformanceStandards {
+	return []PerformanceStandards{
 		{"Bills proposed", "Proposing a high number of bills that address key societal challenges in the constituency.", "Count the number of bills proposed by the MP or local counselor during a given period."},
 		{"Bills passed", "A high percentage of the bills proposed by the MP or local counselor being passed into law.", "Calculate the percentage of bills proposed by the MP or local counselor that are passed into law during a given period."},
 		{"Funding secured", "Securing a high amount of funding for projects aimed at addressing societal challenges in the constituency.", "Calculate the amount of funding secured by the MP or local counselor for projects during a given period."},
@@ -82,7 +82,7 @@ type counselor2 struct {
 
 func PS() {
 	// Get performance standards
-	performanceStandards := GetPerformanceStandards()
+	performanceStandards01 := GetPerformanceStandards()
 
 	// Create MPs and local counselors
 	mp1 := &MP{Name: "John Doe", Constituency: "Nairobi West"}
@@ -99,5 +99,6 @@ func PS() {
 		}
 		fmt.Println()
 	}
+	return performanceStandards01, Performer
 
 }
