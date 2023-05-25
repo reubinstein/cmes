@@ -3,6 +3,9 @@ package initializers
 import (
 	"database/sql"
 	"errors"
+
+	"example.com/packages/db"
+	_ "github.com/lib/pq"
 )
 
 // Policy struct represents a policy in the system
