@@ -2,7 +2,6 @@ package perform
 
 import (
 	"fmt"
-	_ "fmt"
 	"time"
 )
 
@@ -99,6 +98,5 @@ func PS() {
 		}
 		fmt.Println()
 	}
-	return performanceStandards01, Performer
 
 }
