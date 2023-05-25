@@ -111,7 +111,7 @@ func (pr *PDFReporter) GenerateReport(report Report) (string, error) {
 	pdf.Ln(10)
 
 	pdf.SetFont("Arial", "B", 12)
-	pdf.CellFormat(40, 10, "KPI Scores:")
+	pdf.CellFormat(40, 10, "KPI Scores:", "", 0, "", false, 0, "")
 	return body, nil
 
 }

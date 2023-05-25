@@ -2,12 +2,22 @@ package bm
 
 import (
 	"errors"
+	"time"
 )
 
 type Benchmarking struct {
 	Standards map[string]PerformanceStandard
 }
+type PerformanceData struct {
+	KPI         string
+	Value       int
+	Measurement string
+	Date        time.Time
+}
 
+type Performer interface {
+	GetPerformance() []PerformanceData
+}
 type PerformanceStandard struct {
 	MinimumValue int
 	MaximumValue int
