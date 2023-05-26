@@ -2,7 +2,12 @@ package core
 
 import (
 	"fmt"
+	_ "log"
 	"time"
+
+	"./benchmarking"
+	"example.com/packages/performance"
+	"example.com/packages/reporting"
 )
 
 type Performer struct {
@@ -11,8 +16,8 @@ type Performer struct {
 	Manager performance.Manager
 }
 
-func (p Performer) GetPerformance() interface{} {
-
+func getDatabaseConnection() {
+	panic("unimplemented")
 }
 
 type EvaluationResult struct {

@@ -5,10 +5,17 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-
+	"./views"
+	"./controllers"
+     
 	"github.com/gorilla/mux"
 )
-
+type MP struct {
+	ID          int    `json:"id"`
+	Name        string `json:"name"`
+	Department string `json:"description"`
+	Status      string `json:"status"`
+}
 func createMP(w http.ResponseWriter, r *http.Request) {
 	// Parse the request body
 	var mp MP
@@ -24,6 +31,14 @@ func createMP(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 	fmt.Fprintf(w, "MP created successfully")
 }
+//function call
+
+projects.CreateProject()
+challenge.CreateChallenge()
+mp.CreateMP()
+policies.CreatePolicies()
+counselors.createCounselors()
+
 
 func main() {
 	router := mux.NewRouter()
